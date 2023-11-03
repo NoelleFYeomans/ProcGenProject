@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3283088149651007749}
   - component: {fileID: 2024790207155881057}
   - component: {fileID: 7030629772046154673}
+  - component: {fileID: 8278663557550749289}
   m_Layer: 0
   m_Name: 3ExitRoomEBlocked
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7324999542500677895}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0, z: 1.2399998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6144,3 +6145,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &8278663557550749289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324999542500677895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25856e0fe4ccd8f4db592d58a77a776d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNorthOpen: 1
+  isEastOpen: 0
+  isSouthOpen: 1
+  isWestOpen: 1
+  isNorthUsed: 0
+  isEastUsed: 0
+  isSouthUsed: 0
+  isWestUsed: 0

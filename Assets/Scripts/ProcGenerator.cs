@@ -6,7 +6,7 @@ using UnityEngine;
 public class ProcGenerator : MonoBehaviour //TODO List: How do i decided to deal with "is opening used or not?" and "is there an opening", perhaps start with randomly placing in grid
 {
     [Header("# of Rooms")]
-    [Range(0, 50)] //keep to 25 for now //0,0 should always be a 4 way //how do i decided the amount of each room there is?
+    [Range(0, 50)] //square values? remove alltogether?
     public int roomCount;
 
     //int[,] map;
@@ -33,40 +33,47 @@ public class ProcGenerator : MonoBehaviour //TODO List: How do i decided to deal
     public GameObject cornerSW;
     public GameObject cornerNW;
 
-    private List<Room> roomList = new List<Room>(); //foreach gameobject type?
+    private List<GameObject> prefabRooms = new List<GameObject>(); //list of the prefab objects
+    private List<RoomScript> roomList = new List<RoomScript>(); //list of the scripts ON the prefab objects, this is used for logic
+    //how do I do coordinates for these?
 
     // Start is called before the first frame update
     void Start()
     {
         GenerateMap();
-        DrawMap();
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //check all 4 adjacent tiles, if there is something there, don't place something new, if there isn't AND there is access, Do, once done, move onto the next tile, repeat until done.
     {
-        
-    }
-
-    public void DrawMap()
-    {
-
-    }
-    //the map cannot have gaps, there cannot be more exits than entrances
-    public void GenerateMap()
-    {
-        for (int i = 0; i < roomCount; i++)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Instantiate(); //object, position(vec3) // instantiate object, attach room script, add to room list
+            GenerateMap();
         }
     }
-}
 
-public class Room //will be used for handling each prefab cube, like attach this script to a cube on instantiation?
-{
-    //bools, per rooom, that indicate if a side is opened or not
-    bool northOpen;
-    bool eastOpen;
-    bool southOpen;
-    bool westOpen;
+    //the map cannot have gaps, there cannot be more exits than entrances, IE # of exits must be be a multiple of 2
+    public void GenerateMap() //HOW do I make logic to decide how many of each room is used?
+    {
+        prefabRooms.Add(Instantiate(fourWay)); //this is ground zero, roomList's first item is ALWAYS the starting point/0,0,0
+        
+        //foreach (GameObject room in prefabRooms) //this gives me access to a list of every single rooms script (IE, what is/isn't used)
+        //{
+        //    roomList.Add(room.GetComponent<RoomScript>());
+        //}
+
+        //the 4 sides around 0,0,0 will always be open, but make the algorithm here anyway
+
+        while (prefabRooms.Count < roomCount) //adds rooms upto room limit
+        {
+            prefabRooms.Add(Instantiate(fourWay));
+        }
+
+        foreach (GameObject room in prefabRooms) //this gives me access to a list of every single rooms script (IE, what is/isn't used)
+        {
+            roomList.Add(room.GetComponent<RoomScript>());
+        }
+
+        Debug.Log(roomList.Count); //works
+    }
 }

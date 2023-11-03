@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2580571263610190107}
   - component: {fileID: 2827646122541792140}
   - component: {fileID: 2292865322438565404}
+  - component: {fileID: 6985869494684237501}
   m_Layer: 0
   m_Name: NECorner
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7584408835310394794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.91, y: 0, z: 1.54}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7344,3 +7345,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &6985869494684237501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584408835310394794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25856e0fe4ccd8f4db592d58a77a776d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNorthOpen: 0
+  isEastOpen: 0
+  isSouthOpen: 1
+  isWestOpen: 1
+  isNorthUsed: 0
+  isEastUsed: 0
+  isSouthUsed: 0
+  isWestUsed: 0
